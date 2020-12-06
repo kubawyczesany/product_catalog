@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <title>Lista zakupow</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-dark bg-dark">
+            <h1 class="navbar-brand">
+                <i class="fas fa-shopping-basket"></i>
+                Lista zakupow
+            </h1>
+        </nav>
+        <section class="card my-3">
+            <h2 class="card-header">
+                <i class="fas fa-list"></i>
+                Twoja lista
+            </h2>
+            <div class="card-body p-0">
+                {% block itemlist %}
+                    Tutaj lista produktow...
+                    {{items}}
+                {% endblock %}
+            </div>
+        </section>
+        <section class="card my-3">
+            <h2 class="card-header">
+                <i class="fas fa-plus"></i>
+                Dodaj produkt
+            </h2>
+            <div class="card-body">
+                <form action="{{add_url}}" method="post">
+                     <div class="form-group">
+                        <label for="productNameText">
+                            Potrzebuje kupic...
+                        </label>
+                        <input type="text" class="form-control" id="productNameText" aria-describedby="productNameHelp" name="productName" placeholder="Nazwa produktu">
+                        <small id="productNameHelp" class="form-text text-muted">
+                            Mozesz wpisac kilka produktow oddzielonych przecinkami
+                        </small>
+                     </div>
+                    <button type="submit" class="btn btn-primary">Dodaj</button>
+                </form>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
